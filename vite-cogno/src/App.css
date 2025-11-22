@@ -96,6 +96,23 @@ body {
   text-shadow: 0 0 8px var(--neon);
 }
 
+.nav-links button.active {
+  color: var(--neon);
+  text-shadow: 0 0 10px var(--neon);
+  font-weight: 700;
+}
+
+/* Focus status + heading polish */
+.focus-card h2 {
+  color: var(--panel-dark);
+  margin-bottom: 12px;
+}
+.mp-status {
+  margin-top: 8px;
+  font-family: monospace;
+  color: #444;
+}
+
 /* --- Buttons --- */
 .btn-primary {
   background-color: var(--main-ui);

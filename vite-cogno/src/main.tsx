@@ -4,8 +4,9 @@ import { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { FilesetResolver, FaceLandmarker, type FaceLandmarkerResult } from '@mediapipe/tasks-vision'
 
-// @ts-ignore: ChatRoom is a .jsx module without a TypeScript declaration file
+// @ts-ignore: runtime JSX modules (declaration provided in src/types)
 import ChatRoom from './components/ChatRoom';
+// @ts-ignore: runtime JSX modules (declaration provided in src/types)
 import SyllabusImport from './components/SyllabusImport';
 
 // Removed icon dependency (lucide-react) to keep this demo self-contained.
@@ -390,7 +391,7 @@ function FocusPage(){
 }
 
 function App(){
-  const [page, setPage] = useState<'home'|'focus'>('home')
+  const [page, setPage] = useState<'home'|'focus'|'chat'>('home')
   return (
     <div>
       <nav className="navbar">
@@ -400,14 +401,15 @@ function App(){
         </div>
 
         <div className="nav-links">
-          <button onClick={() => setPage('home')}>Home</button>
-          <button onClick={() => setPage('focus')}>Focus</button>
+          <button className={page==='home'? 'active':''} onClick={() => setPage('home')}>Home</button>
+          <button className={page==='focus'? 'active':''} onClick={() => setPage('focus')}>Focus</button>
+          <button className={page==='chat'? 'active':''} onClick={() => setPage('chat')}>Chat</button>
         </div>
 
         <button className="btn-nav" onClick={handleLogin}>Get Started</button>
       </nav>
 
-      {page === 'home' ? <HomePage /> : <FocusPage />}
+      {page === 'home' ? <HomePage /> : page === 'focus' ? <FocusPage /> : <ChatPage />}
     </div>
   )
 }
