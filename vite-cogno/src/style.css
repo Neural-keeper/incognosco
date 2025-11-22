@@ -1,11 +1,19 @@
 :root {
+  /* UI Color Schema */
+  --cogno-bg: #F0F5DF; /* full-page backgrounds */
+  --cogno-ui: #2FAF6A; /* main UI (buttons, highlights) */
+  --cogno-heading: #CFC493; /* headings / dividers */
+  --cogno-panel: #0B3D2E; /* panels or navbars */
+  --cogno-neon: #9AFFC8; /* neon accents / hover glows */
+  --cogno-text: #0B3D2E; /* primary text color */
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--cogno-text);
+  background-color: var(--cogno-panel);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,7 +33,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  align-items: stretch;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -33,13 +41,6 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
 .logo {
@@ -94,3 +95,24 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.page-container{
+  display: flex;
+  gap: 16px;
+  max-width: 98vw;
+  margin: 16px auto;
+  padding: 12px;
+}
+.left-panel{ width: 40%; min-width: 320px; background: rgba(255,255,255,0.02); border-radius: 8px; height: calc(100vh - 80px); overflow: auto }
+.right-panel{ width: 60%; background: rgba(255,255,255,0.02); border-radius: 8px; height: calc(100vh - 80px); overflow: auto }
+
+@media (max-width: 900px){
+  .page-container{ flex-direction: column }
+  .left-panel, .right-panel{ width: 100% }
+}
+
+/* Focus-specific styles */
+.focus-root{ height: 100%; display: flex; flex-direction: column }
+.camera-wrap{ padding: 16px }
+.camera-wrap .mp-status{ margin-top: 8px; font-family: monospace }
+.camera-wrap video{ width: 100%; height: auto; display: block }
