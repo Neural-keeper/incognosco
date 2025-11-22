@@ -209,6 +209,9 @@ function ChatPage() {
 
   return (
     <div className="min-h-screen p-8 space-y-8 container">
+      <div style = {{height: '80px'}}>
+
+      </div>
       <h1 style={{ textAlign: 'center', marginBottom: 16 }}>
         <span style={{ fontSize: '2.25rem', fontWeight: 800, color: 'var(--main-ui)' }}>COGNO</span>
         <div style={{ fontSize: '0.9rem', color: '#666' }}>v1.0 // SURVEILLANCE ACTIVE</div>
